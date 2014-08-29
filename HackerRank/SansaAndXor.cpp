@@ -5,50 +5,31 @@
 #include <cstdio>
 #include <vector>
 #include <algorithm>
+#include <string>
 using namespace std;
 
 
 vector<int> L; 
 
-void printAllSubArrays() {
-	
-
+void findAllSubstrings(const char *s){
+    int x=0;
+    while(*(s+x)){
+        for(int y=0; y<=x; y++)
+            cout<<*(s+y);
+        cout<<'\n';
+        x++;
+    }
+    if(*(s+1))
+        findAllSubstrings(s+1);
+    else
+        return;
 }
 
 int main() {
-	int T ; 
-	cin >> T;
-	int ans = 0;
-	while(T--) {
-		int N;
-		cin >> N;
-		int arr[N];
-		
 
-		for(int i=0 ; i<N ; i++) {
-			cin>>arr[i];
-		}
+	string str;
+	cin >> str;
+	const char *pt = str.c_str();
+	findAllSubstrings(pt);
 
-		int currentSubset = pow(2,N) - 1;; 
-		int tmp; 
-		while (currentSubset) {
-			printf("("); 
-			tmp = currentSubset;
-			for (int i=0 ; i<N ; i++) {
-				if(tmp & 1) {
-					ans = ans xor arr[i];
-					//cout << ans << endl;
-				    printf("%d ", arr[i]); 
-				}
-				tmp >>= 1; 
-			}
-			printf(")\n"); 
-			currentSubset--; 
-		}
-
-		// for(int i=0 ; i<N ; i++) {
-		// 	cout<<arr[i]<<endl;
-		// }
-	}
-	cout << ans << endl;
 }
