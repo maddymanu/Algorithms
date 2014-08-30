@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <cassert>
+#include <algorithm>
 using namespace std;
 
 int n, m;
@@ -12,13 +14,6 @@ int findWays(int x, int y, std::string str)
 {
     if (x <= n && y <= m)
     {   
-        if(!(x==0 && y==0)) {
-            //str += "(";
-            //str += std::to_string(x);
-            //str += ", ";
-            //str += std::to_string(y);
-            //str +="), ";
-        }
         if (x == n && y == m)
         {
             //std::cout << "Path End : " << str << std::endl;
@@ -37,18 +32,18 @@ int findWays(int x, int y, std::string str)
 
 int main()
 {
-    // n = 2;
-    // m = 2;
-    // int count = findWays(0,0,"");
-    // sort(strVector.begin() , strVector.end());
-    // cout << strVector.at(2) << endl;
-    // 
+
     long long int T;
     int K;
     cin >> T;
+    assert (T>=1 && T<=100000);
     while(T--) {
         strVector.clear();
         cin >> n >> m >> K;
+
+        assert (n>=1 && n<=10);
+        assert (m>=1 && m<=10);
+
         int count = findWays(0,0,"");
         sort(strVector.begin() , strVector.end());
         cout << strVector.at(K) << endl;
