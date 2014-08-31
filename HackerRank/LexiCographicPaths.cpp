@@ -16,7 +16,6 @@ int findWays(int x, int y, std::string str)
     {   
         if (x == n && y == m)
         {
-            //std::cout << "Path End : " << str << std::endl;
             strVector.push_back(str);
             return 1;
         }
