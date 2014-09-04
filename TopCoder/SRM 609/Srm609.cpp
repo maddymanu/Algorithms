@@ -24,6 +24,7 @@ public:
 	}
 };
 
+/* Div 2- 500 */
 class PackingBallsDiv2
 {
 public:
@@ -47,3 +48,50 @@ public:
 	}
 	
 };
+
+/* Div 1 - 250 */
+
+class MagicalStringDiv1
+{
+public:
+	int getLongest(string S) {
+		int n = S.size();
+		int i=0 , j=n-1;
+		int res = 0;
+		while(i<j) {
+			while((i<j) && (S[i] != '>')) {
+				i++;
+			}
+			while((i<j) && (S[j] != '<')) {
+				j--;
+			}
+			if(i<j) {
+				res+=2;
+			}
+			i++;
+			j--;
+		}
+		return res;
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
