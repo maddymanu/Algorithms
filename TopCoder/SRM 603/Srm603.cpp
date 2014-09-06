@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+//Div2 - 250
+class MiddleCode
+{
+public:
+	string encode(string s) {
+		string t = "";
+		while(s != "") {
+			int n = s.length();
+			if(n%2==1) {
+				t = t+s[n/2];
+				s=s.substr(0,n/2) + s.substr();
+			}  else if (s[n/2] < s[n/2-1]) { //the right middle character is smaller
+            t = t + s[n/2]; //remove the right middle character 
+            s = s.substr(0, n/2) + s.substr(n/2 + 1);
+        } else {
+            t = t + s[n/2-1]; //remove the left middle character
+            s = s.substr(0, n/2-1) + s.substr(n/2);
+        }
+		}
+		return t;
+	}
+	
+};
