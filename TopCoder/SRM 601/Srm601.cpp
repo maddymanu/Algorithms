@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
 
 using namespace std;
@@ -18,6 +19,27 @@ public:
 		}
 		return res;
 
+	}
+	
+};
+
+//Div2 500
+class WinterAndCandies
+{
+public:
+	
+	int getNumber(vector<int> type) {
+		map <int,int> cnt;
+		for(int x:type) {
+			cnt[x]++;
+		}
+		int p=1;
+		int sum = 0;
+		for(int k=1 ; k<=type.size() ; k++ ) {
+			p = p*cnt[k];
+			sum += p;
+		}
+		return sum;
 	}
 	
 };
