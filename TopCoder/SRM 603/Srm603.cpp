@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,3 +28,65 @@ public:
 	}
 	
 };
+
+//Div2 500
+class SplitIntoPairs
+{
+public:
+	int makepairs(vector<int> A, int X) {
+		vector<int> neg, nonneg;
+		for (int a: A) {
+			if(a<0) {
+				neg.push_back(a);
+			} else {
+				nonneg.push_back(a);
+			}
+		}
+
+		if(neg.size() %2 == 0) {
+			return A.size()/2;
+		}
+
+		long maxneg = *max_element(neg.begin(), neg.end());
+		long minnonneg = *min_element(nonneg.begin(), nonneg.end());
+		if(maxneg * minnonneg >= X) {
+			return A.size() / 2;
+		} else {
+			return A.size() / 2 - 1;
+		}
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
