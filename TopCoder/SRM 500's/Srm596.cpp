@@ -41,7 +41,7 @@ public:
 	    	f[i] = INF;
 	    	for(int j=i+1 ; j<n ; j++) {
 	    		if(road[j] == next[road[i]]) {
-	    			f[i] = std::min( f[i], (j - i)*(j - i) + f[j] );
+	    			f[i] = min( f[i], (j - i)*(j - i) + f[j] );
 	    		}
 	    	}
 	    }
