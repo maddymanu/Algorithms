@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//Div2 250
 class DeerInZooDivTwo
 {
 public:
