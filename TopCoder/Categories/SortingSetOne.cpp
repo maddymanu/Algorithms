@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <set>
 #include <vector>
 #include <algorithm>
 
@@ -124,8 +125,43 @@ public:
 };
 
 
+//Srm270 Div2 250
+class BuyingCheap
+{
+public:
+	int thirdBestPrice(vector<int> prices) {
+		set s(prices.begin(), prices.end());
+		vector v(s.begin(), s.end());
+		if(v.size() < 3)
+			return -1
+		return v[2];	
+	}
+	
+};
 
 
+//Div2 250
+class MinDifference
+{
+public:
+	int closestElements(int A0, int X, int Y, int M, int n) {
+		int ret = 1000000000;
+		int a[n];
+		a[0] = A0;
+
+		for(int i=1 ; i<n ; i++) {
+			a[i] = (a[i - 1] * X + Y) % M;
+		}
+
+		sort(a.begin(), a.end());
+		for(int i=1 ; i<n ; i++){
+			ret = min(ret, abs(a[i] - a[i-1]));
+		}
+
+		return ret;
+	}
+	
+};
 
 
 
