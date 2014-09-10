@@ -14,7 +14,6 @@ public:
 				return "YES";
 			}
 		}
-
 		return "NO";
 	}
 	
