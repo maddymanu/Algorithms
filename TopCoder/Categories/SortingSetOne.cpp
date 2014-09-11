@@ -163,12 +163,30 @@ public:
 	
 };
 
+class ContestWinner
+{
+public:
+	int getWinner( vector <int> events ) {
+		int N = events.size();
+		int bestContestant = -1, bestTasks = 0, bestTime = -1;
+		for (int n=0; n<N; ++n) {
+            int currentTasks = 0, currentTime = -1;
+            for (int i=0; i<N; ++i)
+                if (events[i] == events[n]) {
+                    ++currentTasks;
+                    currentTime = i;
+                }
+            if (currentTasks > bestTasks || (currentTasks == bestTasks && currentTime < bestTime)) {
+                bestContestant = events[n]; bestTasks = currentTasks; bestTime = currentTime;
+            }
+        }
+        return bestContestant;
+	}
+	
+};
 
 
-
-
-
-
+//DONE TILL DIV2 250 ----- ContestWinnder
 
 
 
