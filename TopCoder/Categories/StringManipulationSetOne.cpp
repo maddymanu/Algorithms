@@ -28,3 +28,47 @@ public:
 		return count;
 	}
 };
+
+class SignatureDecorator
+{
+public:
+	string applyDecoration(String name, vector<string> commands, vector<string> decorations) {
+		string ans = name;
+		for(int i=0 ; i<commands.size() ; i++) {
+			if(commands[i] == "surround") {
+				ans = decorations[i]+ans+decorations[i];
+			} else if(commands[i] == "append") {
+				ans = ans+decorations[i];
+			} else {
+				ans = decorations[i]+ans;
+			}
+		}
+		return ans;
+	}
+	
+};
+
+
+
+
+//Done uptil Div2 250. Start With Div2 500s.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
