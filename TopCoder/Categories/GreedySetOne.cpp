@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
 using namespace std;
@@ -128,6 +129,63 @@ public:
 	}
 	
 };
+
+
+class LinearPolyominoCovering
+{
+public:
+	string findCovering(string region) {
+		replace(region.begin(), region.end() , "XXXX" , "AAAA");
+		replace(region.begin(), region.end() , "XX" , "BB");
+		if(region.find("X") != -1) {
+			return "impossible";
+		}
+
+		return region;
+	}
+	
+};
+
+//Div2 250
+class CreateGroups
+{
+public:
+	int minChanges(vector<int> groups , int minSize, int maxSize) {
+		int n = groups.size();
+		int sum = 0;
+		for(int curr : groups) {
+			sum += curr;
+		}
+		if(sum < minSize*n || sum > maxSize*n)
+			return -1;
+		int need = 0,toomuch = 0;
+		for(int i=0 ; i<n ; i++){
+			if(groups[i] < minSize)
+				need += minSize - groups[i];
+			if(groups[i] > maxSize)
+				toomuch += maxSize - groups[i];
+		}
+		return max(toomuch , need);
+	}
+	
+};
+
+//Start With Div2 500points.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
