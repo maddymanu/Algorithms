@@ -129,11 +129,36 @@ public:
 };
 
 
+class Aaagmnrs {
+public:
+	vector<string> anagrams(vector<string> phrases) {
+		int n = phrases.size();
+		vector<string> ret;
+		set<string> dict;
+		for(int i=0 ; i<n ; i++) {
+			string tmp;
+			for(int j=0 ; j<phrases[i].size() ; j++) {
+				if (phrases[i][j] != ' ')
+				{
+					tmp += tolower(phrases[i][j]);
+				}
+			}
+			sort(tmp.begin(), tmp.end());
+			if(dict.count(tmp)) {
+				continue;
+			}
+			dict.insert(tmp);
+			ret.push_back(phrases[i]);
+		}
+		return ret;
+	}
+};
 
 
 
 
 
+//Do more 500 pointers...starting from Div2 Success 70%
 
 
 
