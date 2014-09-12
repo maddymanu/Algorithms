@@ -186,7 +186,7 @@ public:
 };
 
 
-//DONE TILL DIV2 250 ----- ContestWinnder
+//DONE TILL DIV2 250 ----- Complete. Start Div2 500 pointers.
 
 
 
