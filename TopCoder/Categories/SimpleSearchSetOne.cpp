@@ -146,6 +146,68 @@ public:
 
 //Done TILL FOX PROGRESSION - Do Some more DIV2 250 then move to 500
 
+class Barbecue
+{
+public:
+	int eliminate(int n, vector<int> voter, vector<int> excluded) {
+		vector<int> p(n);
+		for(int i=0 ; i<excluded.size() ; i++) {
+			p[excluded[i]]++;
+		}
+		vector<int>::iterator it = max_element(p.begin(), p.end());
+		if(count(p.begin(), p.end() , *it) == 1) {
+			return it-p.begin();
+		} 
+		vector<int> q;
+		int m = *it;
+		for(int i=0 ; i<p.size() ; i++) {
+			if(p[i] == *it)
+				q.push_back(i);
+		}
+		int t=-1 , ans = -1;
+		for(int i=0 ; i<q.size() ; i++) {
+			int n = count(voter.begin(), q.end() , q[i]);
+			if(n>t) {
+				t = n;
+				ans = q[i];
+			}
+		}
+		return ans;
+	}
+	
+};
+
+class DocumentSearch
+{
+public:
+	int nonIntersecting(vector<string> doc, string search) {
+		string s = "";
+		for(string x : doc) {
+			s+= x;
+		}
+
+		int i=0 , ans = 0;
+		while(i <= s.size() - search.size()) {
+			if(s.substr(i , i+search.size()) == search) {
+				ans++;
+				i+= search.size();
+			} else {
+				i++;
+			}
+		}
+		return ans;
+	}
+	
+};
+
+
+
+
+//Done Starting Div2 500 ptrs.
+
+
+
+
 
 
 
