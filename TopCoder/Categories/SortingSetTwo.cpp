@@ -40,6 +40,64 @@ public:
 };
 
 
+class BuildingHeightsEasy
+{
+public:
+	int minimum(int M, vector<int> heights) {
+		const int INF = 1000000000;
+    	int res = INF;
+
+    	for(int x : heights) {
+    		vector<int> costs;
+    		for(int y : heights) {
+    			if(y<=x){
+    				costs.push_back(x-y);
+    			}
+    		}
+
+    		if(costs.size() >= M) {
+    			int currCost = 0;
+    			sort(costs.begin(), costs.end());
+    			for(int i=0 ; i<M ; i++) {
+    				currCost += costs[i];
+    			}
+    			res = min(res , currCost);
+    		}
+
+    	}
+    	return res;
+	}
+};
+
+class GroceryBagger
+{
+public:
+	int minimumBags(int strength, vector<string> itemType) {
+		int m = strength;
+		map <string, int> m;
+		vector<string> s = itemType;
+		m.clear();
+		for(int i=0 ; i<itemType.size() ; i++) {
+			m[s[i]]++;
+		}
+		map <string, int>::iterator it = m.begin();
+		int ans = 0;
+		for( ; it != m.end() ; it++) {
+			int x = it->second;
+			ans += (x+m-1)/m;
+		}
+
+		return ans;
+	}
+	
+};
+
+
+
+
+
+
+
 
 
 
