@@ -81,11 +81,20 @@ class WordForm
 {
 public:
 	string getSequence(string word) {
-		int ans = "";
-		for (int i = 0; i < word.size(); ++i)
-		{
-			
+		string ans = "";
+		int pre = 0;
+		for(int i=0 ; i<word.size() ; i++) {
+			char c = tolower(word[i]);
+			int kind = -1;
+			if(c =='a' || c =='e' || c =='i' || c =='o' || c =='u' || (c == 'y' && i>0 && pre =-1)) {
+				kind = 1;
+			}
+			if(pre != kind) {
+				pre = kind;
+				ans += kind ==1 ? 'V' : 'C';
+			}
 		}
+		return ans;
 
 	}
 	
@@ -160,7 +169,45 @@ public:
 
 //Do more 500 pointers...starting from Div2 Success 70%
 
+class XBallGame
+{
+public:
+	vector<string> newStatistics(vector<string> placeboard) {
+		string name[51] , pos[51];
+		vector<string> result;
 
+		int n = placeboard.size();
+
+		for(int i=0 ; i<n ; i++) {
+			string tmp = placeboard[i];
+			name[i] = tmp.substr(0, tmp.size()-3);
+			pos[i] = tmp.substr(tmp.size()-2);
+		}
+
+		for(int i=0 ; i<n ; i++) {
+			string add, now;
+			vector<string> all;
+			now = pos[i];
+			
+			for(int j=0 ; j<n ; j++) {
+				if(i!=j && name[i]==name[j]) {
+					all.push_back(pos[j]);
+				}
+			}
+
+			sort(all.begin(), all.end());
+			add = name[i] + "-" + now;
+			for(int k=0; k<all.size() ; k++) {
+				add += "," + all[k];
+			}
+
+			result.push_back(add);
+		}
+
+		return result;
+	}
+	
+};
 
 
 
