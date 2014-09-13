@@ -25,3 +25,48 @@ public:
 	}
 	
 };
+
+class TwoTurtledoves
+{
+public:
+	int presentType(int n) {
+		int count = 0;
+		int day = 1;
+		while(count + day*(day+1)/2 < n) {
+			count += day*(day+1)/2;
+			day++;
+		}
+		for(int type = day ; ; type--) {
+			count += type;
+			if(count >= n)
+				return type;
+		}
+	}
+	
+};
+
+
+
+
+//DO MORE!!! DIV 2 500 ptrs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
