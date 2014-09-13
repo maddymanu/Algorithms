@@ -210,6 +210,57 @@ public:
 };
 
 
+class Abacus
+{
+public:
+	vector <string> add(vector <string> original, int val) {
+		int number = 0;
+		for(int i=0 ; i<original.size() ; i++) {
+			int digit = 9 - original[i].find("-");
+			number  = 10*number + digit;
+		}
+
+		number += val;
+		vector<int> digits;
+
+		for(int i=0 ; i<original.size() ; i++) {
+			digits.push_back(number%10);
+			number /= 10;
+		}
+
+		reverse(digits.begin(), digits.end());
+		vector<string> res(6);
+		for(int i= 0 ;i<original.size() ; i++) {
+			res[i] += string(9-digits[i] , "o");
+			res[i] += string(3 , "-");
+			res[i] += string(digits[i] , "o");
+		}
+
+		return res;
+	}
+	
+};
+
+//Do more 500pts for Div2. Getting harder here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

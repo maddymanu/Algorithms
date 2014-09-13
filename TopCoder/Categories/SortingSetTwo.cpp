@@ -95,8 +95,80 @@ public:
 //DO MORE DIV 2 500s ---- from Success rate 72%
 
 
+struct food
+{
+	int prot;
+	int carb;
+	int ft;
+	int cal;
+	int id;
+};
 
+string gl;
+bool info_sorter(const food &lhs , const food &rhs) {
+	int lim = gl.length();
+	for(int i=0 ; i<lim ; i++) {
+		if(gl[i] == 't') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.cal < rhs.cal;
+			}
+		}
+		if(gl[i] == 'T') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.cal > rhs.cal;
+			}
+		}
+		if(gl[i] == 'c') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.carb < rhs.carb;
+			}
+		}
+		if(gl[i] == 'C') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.carb > rhs.carb;
+			}
+		}
+		if(gl[i] == 'p') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.cal < rhs.cal;
+			}
+		}
+		if(gl[i] == 't') {
+			if(lhs.cal != rhs.cal) {
+				return lhs.cal < rhs.cal;
+			}
+		}
+	}
+}
 
+class HealthFood {
+public:
+	vector<int> selectMeals(vector<int> protein, vector<int> carbs, vector<int> fat, vector<int> dietPlans) {
+		vector<int> calories;
+		int lim = protein.size();
+		for(int i=0 ; i<lim ; i++) {
+			calories.push_back(5*carbs[i] + 5*protein[i] + 9*fat[i]);
+		}
+		vector<food> myFood;
+		food f;
+		for(int i=0 ; i<lim ; i++) {
+			f.id =i;
+			f.cal = calories[i];
+			f.prot = protein[i];
+			f.ft = fat[i];
+			f.carb = carbs[i];
+			myFood.push_back(f);
+		}
+		vector<int> ans;
+		lim = dietPlans.size();
+		for(int i=0 ; i<lim ; i++) {
+			gl = dietPlans[i];
+			sort(myFood.begin(), myFood.end() , &info_sorter);
+			ans.push_back(myFood[0].id);
+		}
+
+	}
+};
 
 
 
