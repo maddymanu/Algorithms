@@ -186,6 +186,59 @@ public:
 };
 
 
+
+
+class SerialNumbers
+{
+public:
+
+	bool cmp(const string &a, const string &b) {
+		if(a.size() != b.size()) {
+			return a.size() < b.size();
+		}
+		int sa = 0, sb = 0;
+		for(int i=0 ; i<a.size() ; i++) {
+			if(a[i] >= '0' && a[i] <= '9') {
+				sa += a[i] - '0';
+			}
+		}
+		for(int i=0 ; i<b.size() ; i++) {
+			if(b[i] >= '0' && b[i] <= '9') {
+				sb += b[i] - '0';
+			}
+		}
+		if(sa != sb) {
+			return sa < sb;
+		}
+		return a<b;
+	}
+
+	vector<string> sortSerials(vector<string> serialNumbers) {
+		sort(serialNumbers.begin(), serialNumbers.end() , cmp);
+		return serialNumbers;
+	}
+	
+};
+
+class DiskSpace
+{
+public:
+	int minDrives(vector<int> used, vector<int> total) {
+		int data=0;
+		for(int i=0 ; i<used.size() ; i++) {
+			data += used[i];
+		}
+		int ans = 0;
+		sort(total.begin(), total.end());
+		for(int i=total.size() -1 ; data >0 ; i--) {
+			data = data - total[i];
+			ans++;
+		}
+		return ans;
+	}
+	
+};
+
 //DONE TILL DIV2 250 ----- Complete. Start Div2 500 pointers.
 
 
