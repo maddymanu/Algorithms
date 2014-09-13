@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <sstream>
 #include <map>
 
 using namespace std;
@@ -171,6 +172,77 @@ public:
 };
 
 
+
+struct country
+{
+	string name;
+	int g,s,b;
+};
+
+bool mycmp(struct country a, struct country c) {
+	if(a.g != c.g) {
+		return a.g < c.g;
+	}
+	if(a.s != c.s) {
+		return a.s < c.s;
+	}
+	if(a.b != c.b) {
+		return a.b < c.b;
+	}
+	return a.name < c.name;
+}
+
+
+class MedalTable
+{
+public:
+	vector<string> generate(vector<string> results) {
+		set<string> s;
+		set<string>::iterator it;
+		string str1, str2, str3;
+		for(int i=0 ; i<results.size() ; i++) {
+			stringstream ss(results[i]);
+			ss >> str1 >> str2 >> str3;
+			s.insert(str1);
+			s.insert(str2);
+			s.insert(str3);
+		}
+
+		vector<country> v;
+		for(it = s.begin() ; it != s.end() ; it++) {
+			struct country c;
+			c.name = *it;
+			c.g=c.s=c.b  =0;
+			v.push_back(c);
+		}
+
+		for(int i=0 ; i<results.size() ; i++) {
+			stringstream ss(results[i]);
+			ss >> str1 >>str2 >> str3;
+			for(int j=0 ; j<v.size() ; j++) {
+				if(v[j].name == str1) {
+					v[j].g++;
+				}
+				if(v[j].name == str2) {
+					v[j].s++;
+				}
+				if(v[j].name == str3) {
+					v[j].b++;
+				}
+
+			}
+		}
+		sort(v.begin(), v.end() , mycmp);
+		vector<string> res;
+		for(int i=0 ; i<v.size() ; i++) {
+			string str = v[i].name;
+			str += " " + v[i].g + " " + v[i].s + " " + v[i].b;
+			res.push_back(str);
+		}
+
+		return res;
+	}
+};
 
 
 //Do lots mmore. Start from PAINTBALL. Div2 500 ptrs.
