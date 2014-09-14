@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
@@ -45,8 +46,75 @@ public:
 	
 };
 
+class grafixCorrupt
+{
+public:
+	int selectWord(vector<string> dictionary, vector<string> candidate) {
+		int best = -1 ; 
+		int score = 0;
+		for(int i=0 ; i<dictionary.size() ; i++) {
+			int now = 0;
+			for(int j=0 ; j<dictionary[i].size() ; j++) {
+				if(dictionary[i][j] == candidate[j]) {
+					now++;
+				}
+				if(now > score) {
+					score = now;
+					best = i;
+				}
+			}
+		}
+		return best;
+	}
+	
+};
 
+class GroceryBagger
+{
+public:
+	int minimumBags(int strength, vector<string> itemType) {
+		map<string , int> mp;
+		int res = 0;
+		for(int i=0 ; i<itemType.size() ; i++) {
+			mp[itemType[i]]++;
+		}
 
+		for(auto it = mp.begin() ; it!=mp.end() ; it++) {
+			res += it->second/strength;
+			res += !(it->second%strength == 0);
+		}
+		return res;
+	}
+	
+};
+
+class TheNewHouseDivTwo
+{
+public:
+	int count(vector<int> x, vector<int> y) {
+		int ret = 0;
+		for(int i=-101 ; i<=101 ; i++) {
+			for(int j=-101 ; j<=101 ; j++) {
+				bool n,s,e,w;
+				n=s=e=w=false;
+				for(int k=0 ; k<x.size() ; k++) {
+					if(x[k] > i && y[k] == j)
+						e=true;
+					if(x[k] < i && y[k] == j)
+						w=true;
+					if(y[k] < j && y[k]==i)
+						n=true;
+					if(y[k]>j && y[k]==i)
+						s=true;
+				}
+				if(n&&s&&e&&w)
+					ret++;
+			}
+		}
+		return ret;
+	}
+	
+};
 
 //DO MORE!!! DIV 2 500 ptrs.
 
