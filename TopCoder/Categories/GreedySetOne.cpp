@@ -170,6 +170,51 @@ public:
 	
 };
 
+
+class ImportantTasks
+{
+public:
+	int maximalCost(vector<int> complexity, vector<int> computers) {
+		int res = 0;
+		int i = complexity.size()-1 , j=computers.size()-1;
+		sort(complexity.begin(), complexity.end());
+		sort(computers.begin(), computers.end());
+
+		while(i>=0 && j>=0) {
+			if(complexity[i] <= computers[j]) {
+				res++;
+				//i--;
+				j--;
+			}
+			i--;
+		}
+		return res;
+	}
+	
+};
+
+
+class BootsExchange
+{
+public:
+	int leastAmount(vector<int> left, vector<int> right) {
+		int n = left.size();
+		int leftCount[1000];
+		int rightCount[1000];
+		for(int i=0 ; i<n ; i++) {
+			leftCount[left[i]-1]++;
+			rightCount[right[i] -1]++;
+		}
+
+		int same = 0;
+		for(int i=0 ; i<1000 ; i++) {
+			same += min(leftCount[i] , rightCount[i]);
+		}
+		return n-same;
+	}
+	
+};
+
 //Start With Div2 500points.
 
 
