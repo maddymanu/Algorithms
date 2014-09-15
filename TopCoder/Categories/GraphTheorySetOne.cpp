@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <vector>
+#include <cstring> //for memset imp.
 #include <string>
 #include <stdio.h>
-#include <string.h>
 #include <algorithm>
 
 using namespace std;
@@ -167,6 +167,56 @@ public:
 };
 
 
+//Start from Div2 500 - ArcadeManao
+
+class ArcadeManao
+{
+public:
+
+	int w, h , L;
+	bool visited[50][50];
+	vector<string> level;
+
+	void dfsArcade(int i, int j) {
+		if(visited[i][j]) {
+			return;
+		}
+		visited[i][j] = true;
+
+		if( (j>0) && (level[i][j-1] == 'X') ) {
+			dfsArcade(i , j-1);
+		}
+
+		if( (j<w-1) && (level[i][j+1] == 'X') ) {
+			dfsArcade(i, j+1);
+		}
+
+		for(int y=0 ; y<h ; y++) {
+			if( abs(y-i)<=L && (level[y][j] == 'X') ) {
+				dfs(y,j);
+			}
+		}
+
+	}
+
+	int shortestLadder(vector <string> level, int coinRow, int coinColumn) {
+		h.level.size() ;
+		w = level[0].size();
+		this->level = level;
+
+		for(L=0 ; L<49 ; L++) {
+			memset(visited , 0, sizeof(visited));
+
+			dfsArcade(h-1 , 0);
+			if(visited[coinRow-1][coinColumn-1]){
+				return L;
+			}
+		}
+		return 49;
+
+	}
+	
+};
 
 
 
