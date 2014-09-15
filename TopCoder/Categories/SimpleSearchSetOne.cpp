@@ -284,7 +284,48 @@ public:
 	
 };
 
+class AttendanceShort
+{
+public:
+	vector<string> shortList(vector<string> names, vector<string> attendance) {
+		vector<string> result;
+
+		for(int i=0 ; i<names.size() ; i++) {
+			int pres = 0, total = 0;
+
+			for(int j=0 ; j<attendance[i].size() ; j++) {
+				if(attendance[i][j] == 'P') {
+					total++;
+					pres++;
+				} else if(attendance[i][j]=='A') {
+					total++;
+				} 
+			}
+			cout << pres << " " << total << end;
+			int ans = int ((pres/total) * 100);
+			cout << "The ans is" << ans << endl;
+			if( ans < 75) {
+				result.push_back(names[i]);
+			}
+		}
+		sort(result.begin(), result.end());
+		return result;
+	}
+	
+};
+
 //LEAVING FOR NOW. Do more.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
