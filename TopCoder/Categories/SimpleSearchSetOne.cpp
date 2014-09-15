@@ -214,10 +214,78 @@ public:
 	
 };
 
+class ColorfulBoxesAndBalls
+{
+public:
+	int getMaximum(int numRed, int numBlue, int onlyRed, int onlyBlue, int bothColors) {
+		int maxx = min(numRed , numBlue);
+		int ans = 1<<31;
+		for(int i=0 ; i<= maxx ; i++) {
+			ans = max(ans , (numRed-i)*onlyRed + (numBlue-i)*onlyBlue + 2*i*bothColors );
+		}
+		return ans;
+	}
+	
+};
+
+class NumberNeighbours
+{
+public:
+	int numPairs(vector<int> numbers) {
+		int n = numbers.size();
+		vector<string> alphanum(n);
+		for(int i=0 ; i<n ; i++) {
+			char temp[10];
+			sprintf(temp , "%d" , numbers[i]);
+			for(int j=0 ; temp[j] ; j++) {
+				if(temp[j] != '0') {
+					alphanum[i] = alphanum[i] + temp[j];
+				}
+			}
+			sort(alphanum[i].begin() , alphanum[i].end());
+		}
+		int ans = 0;
+		for(int i=0 ; i<n ; i++)
+			for(int j=i+1 ; j<n ; j++ ) {
+				ans += alphanum[i] == alphanum[j];
+			}
+		return ans;
+	}
+	
+};
 
 
+class FunnyFence
+{
+public:
+	int getLength(string s) {
+		vector<int> l(50 , 1);
+		int j=0;
+		for(int i=1 ; i<s.size() ; i++) {
+			if(s[i-1] != s[i]){
+				l[j]++;;
+			} else {
+				j++;
+			}
+		}
+		sort(l.rbegin() , l.rend());
+		return l[0];
+	}
+	
+};
 
-//Done Starting Div2 500 ptrs.
+class LinearTravellingSalesman
+{
+public:
+	int findMinimumDistance(vector<int> x, vector<int> y) {
+		return *max_element(x.begin(), x.end())-*min_element(x.begin(), x.end()) +
+				*max_element(y.begin(), y.end()) - *min_element(y.begin(), y.end());
+	}
+	
+};
+
+//LEAVING FOR NOW. Do more.
+
 
 
 
