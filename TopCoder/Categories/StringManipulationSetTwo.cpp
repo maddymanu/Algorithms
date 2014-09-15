@@ -1,4 +1,4 @@
-//Div2 500
+3//Div2 500
 
 #include <iostream>
 #include <string>

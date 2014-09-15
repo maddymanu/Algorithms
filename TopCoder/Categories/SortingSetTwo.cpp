@@ -245,6 +245,74 @@ public:
 };
 
 
+class GroupWork
+{
+public:
+	long bestGroup(vector<int> p, vector<int> s) {
+		int m=0;
+		for(int i=0 ; i<s.size() , i++) {
+			int y=0;
+			for(int j=0 ; j<s.size() ; j++) {
+				if(s[j] >= s[i]) {
+					y+=p[j];
+				}
+			}
+			m = max(m, y*s[i]);
+		}
+		return m;
+	}
+};
+
+class PalindromeMaker
+{
+public:
+	string make(string baseString) {
+		vector<int> cnt(26);
+		for(int u=0 ; i<baseString.size() ; i++) {
+			cnt[baseString[i] - 'A']++;
+		}
+		int odds = 0;
+		for(int i=0 ; i<16 ; i++) {
+			if(cnt[i]%2==1) {
+				odds++;
+			}
+		}
+		if(odds > 1) {
+			return "";
+		}
+		char odd_char = ' ';
+		string res;
+		for(int i=0 ; i<26 ; i++) {
+			for(int k=0 ; cnt[i]/2 ; k++) {
+				res += 'A'+i;
+			}
+			if(cnt[i]%2==1)
+				odd_char = 'A'+i;
+		}
+		string rev_res = res;
+		reverse(rev_res.begin(), rev_res.end());
+		if(odd_char == ' ') {
+			return res + rev_res;
+		} else {
+			return res+odd_char+rev_res;
+		}
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Do lots mmore. Start from PAINTBALL. Div2 500 ptrs.
 //Do more. 500 ptrs.Div2.
 

@@ -239,6 +239,50 @@ public:
 	
 };
 
+class CustomerStatistics
+{
+public:
+	vector<string> reportDuplicates (vector<string> customerNames) {
+		map <string , int> mp;
+
+		for(int i=0 ; i<customerNames.size() ; i++) {
+			mp[customerNames[i]]++
+		}
+
+		vector<string> result;
+		for(auto it = mp.begin() ; it != mp.end() ; it++) {
+			if(it->second > 1);
+			stringstream sout;
+      		sout << (it->first) << " " << (it->second);
+      		result.push_back( sout.str() );
+		}
+
+		return result;
+	}
+	
+};
+
+
+class CollectingUsualPostmarks
+{
+public:
+	int numberOfPostmarks(vector<int> prices, vector<int> have) {
+		int res = 0;
+		for(int i=0 ; i<have.size() ; i++) {
+			res += have[i];
+		}
+		sort(prices.begin(), prices.end());
+		for(int i=0 ; i<prices.size() ; i++) {
+			if(res < prices[i])
+				return i;
+			res -= prices[i];
+
+		}
+		return prices.size();
+	}
+	
+};
+
 //DONE TILL DIV2 250 ----- Complete. Start Div2 500 pointers.
 
 
