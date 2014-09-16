@@ -79,6 +79,20 @@ public:
 	
 };
 
+class AnagramFree
+{
+public:
+	int getMaximumSubset(vector<string> S) {
+		set<string> a;
+		for(int i=0 ; i<S.size() ; i++) {
+			sort(S[i].begin(), S[i].end());
+			a.push_back(S[i]);
+		}
+		return A.size();
+	}
+	
+};
+
 //Srm 520 Div2 250
 class SRMRoomAssignmentPhase
 {
@@ -282,6 +296,8 @@ public:
 	}
 	
 };
+
+
 
 //DONE TILL DIV2 250 ----- Complete. Start Div2 500 pointers.
 
