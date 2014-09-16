@@ -119,7 +119,45 @@ public:
 //DO MORE!!! DIV 2 500 ptrs.
 
 
+class PickTwoCards
+{
+public:
 
+	unsigned nChoosek( unsigned n, unsigned k )
+	{
+	    if (k > n) return 0;
+	    if (k * 2 > n) k = n-k;
+	    if (k == 0) return 1;
+
+	    int result = n;
+	    for( int i = 2; i <= k; ++i ) {
+	        result *= (n-i+1);
+	        result /= i;
+	    }
+	    return result;
+	}
+
+	double equalProbability(string cards) {
+		int cnt[26];
+		for(int i=0 ; i<cards.size() ; i++) {
+			cnt[cards[i] - 'A']++;
+		}
+		double chooseValie = 0;
+		cout << "Size of cards is " << cards.size() << endl;
+
+		for(int i=0 ; i<26 ; i++) {
+			if(cnt[i] >= 2) {
+				chooseValie += nChoosek(cnt[i] , 2);
+			}
+		}
+
+		double total = nChoosek(cards.size() , 2);
+		return chooseValie/total;
+
+
+	}
+	
+};
 
 
 
