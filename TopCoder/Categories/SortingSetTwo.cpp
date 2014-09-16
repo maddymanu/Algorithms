@@ -303,6 +303,31 @@ public:
 
 
 
+class Badgers
+{
+public:	
+	int feedMost(vector<int> hunger, vector<int> greed, int totalFood) {
+		int n = hunger.size();
+		int cost[n];
+		int ret = 0 ;
+		for(int i=1 ; i<=n ; i++) {
+			for(int j=0 ; j<n ; j++){
+				cost[j] = hunger[j] + (i-1)*greed[j];
+			}
+			sort(cost.begin(), cost.end());
+			int total = 0;
+			for(int j=0 ; j<i ; j++) {
+				total += cost[j];
+			}
+			if(total <=totalFood) {
+				ret = i;
+			}
+	
+		}
+		return ret;
+	}
+	
+};
 
 
 
@@ -312,10 +337,12 @@ public:
 
 
 
-
-//Do lots mmore. Start from PAINTBALL. Div2 500 ptrs.
 //Do more. 500 ptrs.Div2.
+/*
+  * RegularSeason
+	
 
+*/
 
 
 
