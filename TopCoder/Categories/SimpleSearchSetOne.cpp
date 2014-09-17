@@ -314,10 +314,28 @@ public:
 	
 };
 
-//LEAVING FOR NOW. Do more.
 
 
-
+class SandwichBar
+{
+public:
+	int whichOrder(vector <string> available, vector <string> orders) {
+		for(int i=0; i<orders.size() ; i++) {
+			istringstream iss(orders[i]);
+			string s;
+			bool ok = true;
+			while(iss >> s) {
+				if(find(available.begin(), available.end() , s) == available.end()) {
+					ok = false;
+				}
+			}
+			if(ok)
+				return i;
+		}
+		return -1;
+	}
+	
+};
 
 
 

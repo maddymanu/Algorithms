@@ -40,6 +40,75 @@ public:
 	}
 };
 
+class TitleString
+{
+public:
+	string toFirstUpperCase(string title) {
+		for(int i=0 ; i<title.size() ; i++) {
+			if((i==0 || title[i-1] != ' ') && title[i] != ' ') {
+				title[i] = toupper(title[i]);
+			}
+		}
+		return title;
+	}	
+	
+};
+
+
+
+class DietPlan
+{
+public:
+	string chooseDinner(String diet, String breakfast, String lunch) {
+		string x = breakfast+lunch;
+		for(int i=0 ; i<x.size() ; i++) {
+			if(diet.find(x[i]) == string::npos) {
+				return "CHEATER";
+			}
+		}
+		sort(diet.begin(), diet.end());
+		string rv ="";
+		for(int i=0 ; i<diet.size() ; i++) {
+			if(x.find(diet[i]) == string::npos) {
+				rv += diet[i];
+			}
+		}
+		return rv;
+	}
+	
+};
+
+
+
+class VLNString
+{
+public:
+	string makeAcronym(string longName) {
+		istringstream str(longName);
+		string s ; 
+		string ret = "";
+		while(str >> s) {
+			if((s == "and") || (s=="the") || (s="of")) {
+
+			} else {
+				ret += toupper(s[i]);
+			}
+		}
+		return ret;
+	}
+	
+};
+
+
+
+//Done
+
+
+
+
+
+
+
 
 
 
