@@ -99,7 +99,37 @@ public:
 	
 };
 
-
+class PikachuEasy
+{
+public:
+	string check(string word) {
+		int n = word.size();
+		for(int i=0 ; i<n ; i++) {
+			if(word[i] == 'p') {
+				if(word[i+1] != "i"){
+					retrun "NO";
+				}
+				i++;
+			} else if(word[i] == "k") {
+				if(word[i+1] != "a") {
+					return "NO";
+				}
+				i++;
+			} else if(word[i] == "c") {
+				if(word[i+1] != "h") {
+					return  "NO";
+				}
+				if(word[i+2] != "u") {
+					return "NO";
+				}
+				i+=2;
+			}
+			return "NO";
+		}
+		return "YES";
+	}
+	
+};
 
 //Done
 

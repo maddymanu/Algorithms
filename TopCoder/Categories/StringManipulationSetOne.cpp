@@ -131,9 +131,57 @@ public:
 };
 
 
+class DancingSentence
+{
+public:
+	string makeDancing(string sentence) {
+		string ret = "";
+		bool upper = true;
+		for(int i=0 ; i<sentence.size() ; i++) {
+			char c = sentence[i];
+			if(c==' ') {
+				ret += ' ';
+			} else {
+				if(upper) {
+					ret += toupper(c);
+				} else {
+					ret += tolower(c);
+				}
+				upper = !upper;
+			}
 
+		}
+		return ret;
+	}
+	
+};
 
-
+class Chivalry
+{
+public:
+	string getOrder(string first, string second) {
+		string ret = "";
+		while(first.size() >0 || second.size()>0) {
+			if(first.size() > 0 && first[0] == 'W') {
+				out += 'W';
+				first = first.substr(1);
+			} else if(second.size() > 0 && second[0] == 'W') {
+				out += 'W';
+				second = second.substr(1);
+			}
+			else {
+				if(first.size() > 0) {
+					first = first.substr(1);
+				} else {
+					second = second.substr(1);
+				}
+				out += 'M';
+			}
+		}
+		return ret;
+	}
+	
+};
 
 
 

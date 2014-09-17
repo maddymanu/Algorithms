@@ -330,15 +330,41 @@ public:
 };
 
 
+class ReportAccess
+{
+public:
+	vector<string> whoCanSee(vector<string> userNames, vector<string> allowedData, vector<string> reportData) {
+		vector<string> ans;
+		for(int i=0 ; i<userNames.size() ; i++) {
+			stringstream ss(allowedData[i]);
+			string tmp;
+			set<string> s;
+			while(ss >> tmp) {
+				s.insert(tmp);
+			}
+			bool flag = true;
+			for(int j=0 ; j<reportData.size() ; j++) {
+				if(s.find(reportData[i]) == s.end()) {
+					flag = false;
+					break;
+				}
+			}
+			if(flag) {
+				ans.push_back(userNames[i]);
+			}
 
-
-
+		}
+		sort(ans.begin(), ans.end());
+		return ans;
+	}
+	
+};
 
 
 
 
 //Do more. 500 ptrs.Div2.
-/*
+/* LEFT FOR LATER.
   * RegularSeason
 	
 

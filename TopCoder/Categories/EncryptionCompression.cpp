@@ -41,7 +41,14 @@ public:
 class CCipher {
 public:
 	string decode(string cipherText, int shift) {
-		
+		for(int i=0 ; i<cipherText.length() ; i++) {
+			char c = (cipherText[i] - shift);
+			if(c < 'A') {
+				c+= 26;
+			}
+			cipherText[i] = c;
+		}
+		return cipherText;
 	}	
 	
 };
@@ -49,7 +56,7 @@ public:
 
 
 
-
+//Done with Div2 250!!! (Only 2 problems.)
 
 
 
