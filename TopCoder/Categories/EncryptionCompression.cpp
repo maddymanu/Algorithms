@@ -54,14 +54,42 @@ public:
 };
 
 
-
-
 //Done with Div2 250!!! (Only 2 problems.)
 
 
+//Div2 500ptrs
 
+class SuperRot
+{
+public:
+	string decoder(string message) {
+		int n = message.size();
+		for(int i=0 ; i<n ; i++) {
+			if(message[i] >= 'A' && message[i] <= 'M') {
+				message[i] += 13;
+			}
+			if(message[i] >= 'N' && message[i] <= 'Z') {
+				message[i] -= 13;
+			}
 
+			if(message[i] >= 'a' && message[i] <= 'm') {
+				message[i] += 13;
+			}
+			if(message[i] >= 'n' && message[i] <= 'z') {
+				message[i] -= 13;
+			}
 
+			if(message[i] >= '0' && message[i] <= '4') {
+				message[i] += 5;
+			}
+			if(message[i] >= '5' && message[i] <= '9') {
+				message[i] -= 5;
+			}
+		}
+		return message;
+	}
+	
+};
 
 
 
