@@ -161,6 +161,60 @@ public:
 
 
 
+class PartySeats
+{
+public:
+	vector<string> seating(vector<string> attendees) {
+		vector<string> b, g, out;
+		for(int i=0 ; i<attendees.size() ; i++) {
+			stringstream ss(a[i]);
+			string name, gener;
+			ss >> name >> gener;
+			if(gener == "boy") {
+				b.push_back(name);
+			} else {
+				g.push_back(name);
+			}
+		}
+		if(b.size() <=1 || g.size() <=1 || b.size() != g.size() || g.size()%2) {
+			return out;
+		}
+		sort(b.begin(), b.end());
+		sort(g.begin(), g.end());
+		out.push_back("HOST");
+		for(int i=0 ; i<g.size()/2 ; i++) {
+			out.push_back(g[i]);
+			out.push_back(b[i]);
+		}
+		out.push_back("HOSTESS");
+		for(int i=g.size()/2 ; i<g.size() ; i++) {
+			out.push_back(b[i]);
+			out.push_back(g[i]);
+		}
+		return out;
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

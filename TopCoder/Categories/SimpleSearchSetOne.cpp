@@ -339,6 +339,101 @@ public:
 
 
 
+class FoxAndFlowerShopDivTwo
+{
+public:
+	int theMaxFlowers(vector<string> flowers, int x, int y) {
+		int R = f.size();
+		int C = f[0].size();
+		int result = 0, sum = 0;
+
+		for(int i=0 ; i<R ; i++) {
+			for(int j=0 ; j<y ; j++) {
+				sum += f[i][j] == 'F';
+			}
+		}
+		result = max(result, sum);
+
+		sum=0;
+		for(int i=0 ; i<x ; i++) {
+			for(int j=0 ; j<C ; j++) {
+				sum += f[i][j] == 'F';
+			}
+		}
+		result = max(result, sum);
+
+		sum=0;
+		for(int i=0 ; i<R ; i++) {
+			for(int j=y+1 ; j<C ; j++) {
+				sum += f[i][j] == 'F';
+			}
+		}
+		result = max(result, sum);
+
+		sum=0;
+		for(int i=x+1 ; i<R ; i++) {
+			for(int j=0 ; j<C ; j++) {
+				sum += f[i][j] == 'F';
+			}
+		}
+		result = max(result, sum);
+
+		return result;
+
+	}
+	
+};
+
+
+class TrappingRabbit
+{
+public:
+	int findMinimumTime(vector<int> trapX, vector<int> trapY) {
+		int res = 200000;
+		for(int i=0 ; i<trapX.size() ; i++) {
+			res = min(res , trapX[i]+trapY[i]-2);
+		}
+
+		return res;
+	}
+	
+};
+
+class MagicSpell
+{
+public:
+	string fixTheSpell(string spell) {
+		string az = "";
+		for(int i=0 ; i<spell.size() ; i++) {
+			if(spell[i] == 'A' || spell[i]=='Z') {
+				az += spell[i];
+			}
+		}
+
+		string res = "";
+		int pos = az.size()-1;
+		for(int i=0 ; i<spell.size() ; i++) {
+			if(spell[i] == 'A' || spell[i] == 'Z') {
+				res += az[pos--];
+			} else {
+				res += spell[i];
+			}
+		}
+		return res;
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 

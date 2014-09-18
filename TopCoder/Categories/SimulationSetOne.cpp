@@ -44,3 +44,50 @@ public:
 		return -1;
 	}
 };
+
+
+
+class RussianSpeedLimits
+{
+public:
+
+	bool getDefault(bool inCity) {
+		return inCity ? 60 : 90;
+	}
+
+	int getCurrentLimit(vector<string> signs) {
+		bool inCity = true;
+		int speed = getDefault(inCity);
+		for(string sign : signs) {
+			if(sign == "default") {
+				speed = getDefault(inCity);
+			} else if(sign == "city") {
+				inCity = !inCity;
+				speed = getDefault(inCity);
+			} else {
+				speed = (int)sign;
+			}
+		}
+		return speed;
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
