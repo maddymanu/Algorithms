@@ -456,8 +456,37 @@ public:
 	}
 };
 
+class Pronunciation
+{
+public:
+	string canPronounce(vector<string> words) {
+		string vowels = "aeiouAEIOU";
+		for(int i=0 ; i<words.size() ; i++) {
+			int vowel=0, conson = 0;
+			for(int j=0 ; j<words[i].size() ; j++) {
+				if(vowels.find(word[i][j]) != -1){
+					++vowel;
+					conson = 0;
+				} else {
+					vowel = 0;
+					conson++;
+				}
+				if(conson >= 3) {
+					return words[i];
+				}
+				if(vowel >=2 && j>0 && tolower(words[i][j-1]) != tolower(words[i][j])) {
+					return words[i];
+				}
+			}
+		}
+		return string();
+	}
+	
+};
 
 
+
+//Leave Forever.
 
 
 

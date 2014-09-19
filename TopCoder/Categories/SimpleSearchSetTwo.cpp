@@ -198,14 +198,45 @@ public:
 
 
 
+//Do again
+class IsomorphicWords
+{
+public:
+
+	vector<string> w;
+
+	bool check(int x, int y) {
+		int maps[26] , inv_maps[26];
+
+	}
+
+
+	int countPairs(vector<string> words) {
+		w = words;
+		int ret = 0;
+
+		for(int i=0 ; i<words.size() ; i++) {
+			for(int j=i+1 ; j<words.size() ; j++) {
+				if(check(i,j))
+					ret++;
+			}
+		}
+		return ret;
+	}
+	
+};
 
 
 
 
 
+/* DO Again
 
-
-
+  * DNAString
+  * Isomorphic words.
+  * LuckyString
+	
+*/
 
 
 
