@@ -425,7 +425,36 @@ public:
 };
 
 
+class TaroGrid
+{
+public:
 
+	int consecutive(const vector<string> &grid, int i) {
+		int h = grid.size();
+		int x=1;
+		int res = 1;
+		for(int j=1 ; j<h ; j++) {
+			if(grid[j-1][i] == grid[j][i]) {
+				x++;
+			} else {
+				x=1;
+			}
+			res = max(res, x);
+		}
+		return res;
+	}
+
+	int getNumber(vector<string> grid) {
+		int w = grid[0].size();
+		int res = 0;
+
+		for(int i=0 ; i<w ; i++) {
+			res = max(res , consecutive(grid, i));
+		}
+
+		return res;
+	}
+};
 
 
 
