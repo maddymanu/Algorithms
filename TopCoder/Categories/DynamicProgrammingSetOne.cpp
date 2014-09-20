@@ -102,17 +102,42 @@ public:
 };
 
 
+class BinarySearchable
+{
+public:	
+	int howMany(vector<int> sequence) {
+		int ret = 0;
+		for(int i=0 ; i<sequence.size() ; i++) {
+			bool ok = true;
+			for(int j=0 ; j<i ; j++) {
+				if(sequence[j] > sequence[i]){
+					ok = false;
+				}
+			}
+
+			for(int j=i+1 ; j<sequence.size() ; j++){
+				if(sequence[j] < sequence[i]) {
+					ok = false;
+				}
+			}
+
+			if(ok)
+				++ret;
+		}
+
+		return ret;
+	}
+	
+};
 
 
 
 
 
 
-
-
-
-
-
+/* Do later
+	* VocaloidAndSongs
+*/
 
 
 
