@@ -184,8 +184,31 @@ public:
 };
 
 
+class AccessChanger
+{
+public:
+	vector<string> convert(vector<string> program) {
+		vector<string> ret;
+
+		for(int i=0 ; i<program.size() ; i++) {
+			for(int j=0 ; j<program[i].size()-1 ; j++) {
+				if(program[i].substr(j,2) == "//") {
+					break;
+				}
+				if(program[i].substr(j,2) == "->") {
+					program[i][j]=".";
+					program[i].erase(j+1 , 1);
+				}
+			}
+		}
+
+		return ret = p;
+	}
+	
+};
 
 
+//Done till October atleast.
 
 
 
