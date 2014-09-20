@@ -235,6 +235,7 @@ public:
   * DNAString
   * Isomorphic words.
   * LuckyString
+  * AlientAndGame
 	
 */
 

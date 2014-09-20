@@ -65,8 +65,103 @@ public:
 };
 
 
+class LargestSubsequence
+{
+public:
+	string getLargest(string s) {
+		if(s.size() == 0) {
+			return s;
+		}
+
+		int p=0;
+		for(int i=1 ; i<s.size() ; i++) {
+			if(s[i] > s[p]) {
+				p = i;
+			}
+		}
+
+		return s[p]+getLargest(s.substr(p+1));
+	}
+	
+};
+
+class UnderscoreJustification
+{
+public:
+	string justifyLine(vector<string> words, int width) {
+		int totalLetters = accumulate(words.begin(), words.end(), string()).size();
+    	int totalSpaces = width - totalLetters;
+
+    	int numIntervals = words.size() - 1;
+	    int shortInterval = totalSpaces / numIntervals;
+	    int longInterval = shortInterval + 1;
+	    int numLongIntervals = totalSpaces - shortInterval * numIntervals;
+	    int numShortIntervals = numIntervals - numLongIntervals;
+
+	    string line = words[0];
+
+	    for(int i=1 ; i<words.size() ; i++) {
+	    	if((words[i][0]) < '_' && numShortIntervals > 0 || (numLongIntervals == 0)) {
+	    		line += string(shortInterval , '_');
+	    		numShortIntervals--;
+	    	} else {
+	    		line += string(longInterval, '_');
+	    		numLongIntervals--;
+	    	}
+	    	line += words[i];
+	    }
+	}
+	
+};
+
+
+class OlympicCandles
+{
+public:
+	int numberOfNights(vector<int> candles) {
+		int res = 0;
+		while(1) {
+			sort(candles.rbegin(), candles.rend());
+			if(res >= candles.size() || candles[res]==0) {
+				break;
+			}
+			for(int i=0 ; i<= res ; i++) {
+				a[i]--;
+			}
+			res++;
+		}	
+		return res;
+	}
+	
+};
+
+
+
+
+
+
+
+
+
+/* Do Later
+	* LostParentheses.
+*/
 
 //Do more Greedy 500ptrs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
