@@ -1,10 +1,11 @@
-3//Div2 500
+//Div2 500
 
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <cstring>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -243,11 +244,79 @@ public:
 
 //Do more 500pts for Div2. Getting harder here.
 
+class CmpdWords
+{
+public:
+	int ambiguous(vector<string> dictionary) {
+		set<string> amb, words;
+		for(int i=0 ; i<dictionary.size() ; i++) {
+			words.insert(dictionary[i]);
+		}
+
+		for(int i=0 ; i<dictionary.size() ; i++) {
+			for(int j=0 ; j<dictionary.size() ; j++) {
+				if(i != j) {
+					string s = dictionary[i] + dictionary[j];
+					if(words.count(s)) {
+						amb.insert(s);
+					}else {
+						words.insert(s);
+					}
+				}
+			}
+		}
+
+		return amb.size();
+	}
+	
+};
 
 
 
+class Hangman
+{
+public:
+	string guessWord(string feedback, vector<string> words) {
+		int count = 0;
+		string ret;
+		set<char> mySet;
 
+		for(int i=0 ;i<words.size() ; i++) {
+			string currWord = words[i];
+			bool flag = true;
 
+			if(currWord.size() != feedback.size()) {
+				continue;
+			}
+
+			for(int j=0 ; j<feedback.size() ; j++) {
+				if(feedback[j] != '-') {
+					mySet.insert(feedback[j]);
+					if(feedback[j] != currWord[j]) {
+						flag = false;
+					}
+				} else {
+					if(mySet.count(currWord[j]) != 0) {
+						flag = false;
+					}
+				}
+			}
+
+			if(flag == true) {
+				ret = currWord;
+				count++;
+			}
+
+		}
+
+		if(count == 1) {
+			return ret;
+		} else {
+			return "";
+		}
+	}
+	
+};
 
 
 
