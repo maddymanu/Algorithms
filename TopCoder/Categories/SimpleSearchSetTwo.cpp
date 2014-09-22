@@ -227,7 +227,31 @@ public:
 };
 
 
+class CubeStickers
+{
+public:
+	string isPossible(vector<string> sticker) {
+		map<string, int> m;
+		for(int i=0 ; i<sticker.size() ; i==) {
+			m[sticker[i]]++;
+		}
 
+		int ones , twos;
+		for(auto it = m.begin() ; it != m.end() ; it++) {
+			if(it->second > 1) {
+				twos++;
+			} else {
+				ones++;
+			}
+		}
+
+		if(twos >=3 || twos==2 && ones>=2 || twos==1 && ones>=4 || ones >= 6) {
+			return "YES";
+		}
+		return "NO";
+	}
+	
+};
 
 
 /* DO Again
