@@ -136,15 +136,39 @@ public:
 };
 
 
+class MissingParentheses
+{
+public:
+	int countCorrections(string par) {
+		int ret=0 , sum=0;
+
+		for(int i=0 ; i<par.size() ; i++) {
+			if(par[i] == ')') {
+				sum--;
+			} else {
+				sum++;
+			}
+
+			if(sum < 0) {
+				sum = 0;
+				ret++;
+			}
+		}
+
+		return ret+sum;
+	}
+	
+};
 
 
-
+//Start from ICPCBalloons
 
 
 
 
 /* Do Later
 	* LostParentheses.
+	* ColorfulCards
 */
 
 //Do more Greedy 500ptrs.
