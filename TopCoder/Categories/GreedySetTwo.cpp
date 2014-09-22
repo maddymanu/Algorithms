@@ -161,8 +161,36 @@ public:
 };
 
 
-//Start from ICPCBalloons
+class BoxesDiv2
+{
+public:
+	int nextP2(int x)
+	{
+	    // finds the next power of 2 greater than or equal to x
+	    int p = 1;
+	    while (p < x) {
+	        p *= 2;
+	    }
+	    return p;
+	}
 
+	int findSize(vector<int> candyCounts) {
+		int n = candyCounts.size();
+		vector<int> boxes(n);
+		for(int i=0 ; i<n ; i++) {
+			boxes[i] = nextP2(candyCounts[i]);
+		}
+
+		while(boxes.size() > 1) {
+			sort(boxes.rbegin(), boxes.rend());
+			boxes[n-2] = nextP2(boxes[n-1] + boxes[n-2]);
+			boxes.resize(n-1);
+		}
+
+		return boxes[0];
+	}
+	
+};
 
 
 
