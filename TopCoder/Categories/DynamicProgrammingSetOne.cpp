@@ -131,9 +131,50 @@ public:
 };
 
 
+class StringWeightDiv2
+{
+public:
+
+	static const int MOD = 1000000009;
+	long dp[27][1001];
+
+	long oneConsec(int a, int L) {
+		long &res = dp[a][L];
+		if(res == -1) {
+			if(L==0) {
+				res = (a==0);
+			} else if(a==1) {
+				res=1;
+			} else {
+				res = 0;
+				for(int i=1 ; i<=L ; i++) {
+					res += (a * oneConsec(a-1 , L-i)) % MOD;
+				}
+				res %= MOD;
+			}
+
+		}
+		return res;
+	}
+
+	int countMinimums(int L) {
+		memset(dp , -1 , sizeof(dp));
+		long res = 1;
+		if( L <= 26) {
+			for(int i=0 ; i<L ; i++) {
+				res = (res*(26-1))%MOD;
+			}
+		} else {
+			res = oneConsec(26, L);
+		}
+
+		return res;
+	}
+	
+};
 
 
-
+//Getting stuck everywhere. Need to understand more.
 
 /* Do later
 	* VocaloidAndSongs
