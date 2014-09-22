@@ -319,9 +319,76 @@ public:
 };
 
 
+class LongWordsDiv2 {
+public:
+	bool subSequence(string a, string b) {
+		int i=0, j=0;
+		while((i<b.size()) && (j<a.size())) {
+			if(a[j] == b[i])
+				j++;
+			i++;
+		}
+		return (j==a.size());
+
+	}
+
+	string find(string word) {
+		for (char X = 'A'; X <= 'Z'; ++X)
+		{
+			for (char Y = 'A'; Y <= 'Z'; ++Y)
+			{
+				string xyxy = string(1, X) + string(1,Y) + string(1, X) + string(1,Y);
+				if(subSequence(xyxy, word)) {
+					return "Dislikes";
+				}
+			}
+		}
+
+		for (int i = word.size() - 1; i > 0; i--) {
+        	if (word[i] == word[i-1]) {
+            	return "Dislikes";
+        	}
+   		 }
+
+   		 return "Likes";
+
+	}
+};
 
 
+class WordWrap
 
+{
+public:
+	vector<string> justify(vector<string> lines, int columnWidth) {
+		vector<string> rv;
+		string out;
+		istringstream ss;
+
+		for(int i=0 ; i<lines.size() ; i++) {
+			ss.clear();
+			ss.str(lines[i]);
+			string s;
+			while(ss >> s) {
+				if(out.size() + s.size() >= columnWidth) {
+					rv.push_back(out);
+					out.clear();
+				} else if(out.size()) {
+					out.push_back(' ');
+				}
+				out += s;
+			}
+
+		}
+
+		if(out.size()) {
+			rv.push_back(out);
+		}
+
+		return rv;
+	}
+	
+};
 
 
 
