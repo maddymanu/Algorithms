@@ -391,8 +391,44 @@ public:
 };
 
 
+class WolfDelaymaster
+{
+public:
+	string check(string str) {
+		int i=0 ; 
+		int len = str.length();
+		while(i<len) {
+			if(str[i] != 'w') {
+				return "INVALID";
+			}
 
-//Start from GravityBomb
+			int r = 0;
+			while((i<len) && (str[i]=='w')) {
+				i++;
+				r++;
+			}
+
+			char chars[3] = {'o' , 'l' , 'f'};
+			for(char ch : chars) {
+				for(int k=0 ; k<r ; k++) {
+					if((i>=len) || str[i]!=ch ) {
+						return "INVALID";
+					}
+					i++;
+				}
+			}
+
+		}
+		return  "VALID";
+	}
+	
+};
+
+
+
+/* Do again
+	* WordFind - Very important.
+*/
 
 
 
