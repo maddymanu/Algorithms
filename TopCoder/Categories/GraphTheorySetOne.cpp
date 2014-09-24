@@ -215,6 +215,46 @@ public:
 	
 };
 
+//Div2 1000ptr
+
+class TeamBuilder
+{
+public:
+	vector<int> specialLocations(vector<string> paths) {
+		vector<int> ret;
+		int i,j,k , ret1=0 , ret2=0;
+		for(int k=0 ; k<paths.size() ; k++)
+			for(int i=0 ; i<paths.size() ; i++)
+				for(int j=0 ; j<paths.size() ; j++)
+					if(paths[i][k] == '1' && paths[k][j]=='1')
+						paths[i][j] = 1;
+
+
+		for(int i=0 ; i<paths.size() ; i++) {
+			int mini = 1<<30;
+			for(int j=0 ; j<paths[i].size() ; j++) {
+				if(j==i)
+					continue;
+				mini = min(mini , paths[i][j]-'0');
+			}
+			if(mini==1)
+				ret1++;
+			mini == 1<<30;
+			for(int j=0 ; j<paths[i].size() ; j++) {
+				if(j==i)
+					continue;
+				mini = min(mini , paths[j][i]-'0');
+			}
+			if(mini==1)
+				ret2++;
+		}
+		ret.push_back(ret1);
+		ret.push_back(ret2);
+		return ret;
+	}
+	
+};
+
 
 
 

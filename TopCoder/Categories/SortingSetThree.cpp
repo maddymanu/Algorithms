@@ -1,4 +1,4 @@
-//Div1 250 pointers.
+//Mixed
 
 #include <iostream>
 #include <string>
