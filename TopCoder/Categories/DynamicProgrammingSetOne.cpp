@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 #include <algorithm>
 
 using namespace std;
@@ -170,6 +171,45 @@ public:
 
 		return res;
 	}
+	
+};
+
+
+struct Contest {
+	int start, end, percent;
+	Contest(string s) {
+		istringstream is(s);
+		is >> start >> end >> end;
+	}
+
+	bool operator<(const Contest &c) const {
+		return start < c.start;
+	}
+};
+
+
+class ContestSchedule
+{
+public:
+	double expectedWinnings(vector<string> contests) {
+		int n= contests.size();
+		vector<Contest> c;
+		vector<int> dp(n);
+		for(auto it = contests.begin() ; it != contests.end() ; it++) {
+			c.push_back(Contest(*it));
+		}
+		sort(c.begin(), c.end());
+		for(int i=0 ; i<n ; i++) {
+			dp[i] = c[i].percent;
+			for(int j=0 ; j<i ; j++) {
+				if(c[j].end <= c[i].start) {
+					dp[i] = max(dp[i] , dp[j] + c[i].percent);
+				}
+			}
+		}
+
+		return *max_element(dp.begin(), dp.end()) * 0.01;
+	}	
 	
 };
 
