@@ -361,10 +361,10 @@ public:
 };
 
 
-//Getting V Hard.
+//start from schedulestrength
 
-//Do more. 500 ptrs.Div2.
 /* LEFT FOR LATER.
+  * PaintBall
   * RegularSeason
   * BlackWhitePlane
   * BifidSortMachine

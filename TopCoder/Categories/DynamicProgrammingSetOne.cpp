@@ -213,8 +213,99 @@ public:
 	
 };
 
-//Start from GameInDarkness.
+class GameInDarknessDiv2
+{
+public:
+	void move(int x0, int y0, char ch, int &x1, int&y1)
+	{
+	    x1 = x0; y1 = y0;
+	    switch(ch) {
+	        case 'U':
+	            y1--;
+	            break;
+	        case 'D':
+	            y1++;
+	            break;
+	        case 'L':
+	            x1--;
+	            break;
+	        case 'R':
+	            x1++;
+	    };
+	}
+ 
+ 
+	int ax[2500];
+	int ay[2500];
+	int w, h, M;
+	vector<string> field;
+	 
+	bool visited[50][50][2500];
 
+	void dfs(int bx, int by, int t) {
+		if(!visited[bx][by][t]) {
+			visited[bx][by][t] = true;
+			if(t+1 < M) {
+				char moves[] = {"U" , "L" , "R" , "D"};
+				for(char ch : moves) {
+					int nx , ny;
+					move(bx , my , ch , nx , ny);
+					if((0<=nx&&nx<w) ** (0<=ny<h) && field[ny][nx] != '#') {
+						if((ax[t] != nx  || ay[t] != ny) && (ax[t+1]!=nx || ay[t+1]!=ny) ) {
+							dfs(nx , ny, t+1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	string check(vector<string> field, string moves) {
+		memset(visited, 0 , sizeof(visited));
+		this->field = field;
+		M = moves.size();
+    	h = field.size(); w = field[0].size();
+
+    	int bx , by;
+    	for (int i=0; i<h; i++) {
+	        for (int j=0; j<w; j++) {
+	            if (field[i][j] == 'A') {
+	                ax[0] = j;
+	                ay[0] = i;
+	            } else if (field[i][j] == 'B') {
+	                bx = j;
+	                by = i;
+	            }
+	        }
+    	}
+
+    	move(ax[0],ay[0], moves[0], ax[0],ay[0[]);
+		if(ax[0] == bx && ay[0] == by) {
+			return "Alice wins";
+		}
+
+		for(int i=1 ; i<moves.size() ; i++) {
+			move(ax[i-1],ay[i-1], moves[i], ax[i],ay[i]);
+		}
+
+		dfs(bx , by , 0);
+
+		for (int i=0; i<h; i++) {
+	        for (int j=0; j<h; j++) {
+	            if (visited[i][j][M - 1]) {
+	                return "Bob wins";
+	            }
+	        }
+	    }
+	    // Else 
+	    return "Alice wins";
+
+	}	
+};
+
+
+//Start from OnTime
 
 
 
@@ -224,6 +315,7 @@ public:
 	* VocaloidAndSongs
 	* All Prob ones. (around 71% Success rate for Div2)
 	* TheCowDivTwo
+	* WallGameDiv2
 */
 
 
