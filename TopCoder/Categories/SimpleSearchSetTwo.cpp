@@ -68,6 +68,34 @@ public:
 };
 
 
+class IsomorphicWords
+{
+public:
+	int countPairs(vector <string> w) {
+		int ans = 0;
+		for(int i=0 ; i<w.size() ; i++)
+			for(int j=i+1 ; j<w.size() ; j++) {
+				vector<int> m(256,-1) , pm(256,-1);
+				for(int k=0 ; k<w[i].size() ; k++) {
+					if(m[w[i][k]] == -1 && pm[w[j][k]] == -1) {
+						m[w[i][k]] = w[j][k];
+						pm[w[j][k]] = w[i][k];
+					}
+					if(m[w[i][k]] != w[j][k])
+						goto fail;
+					if(pm[w[j][k]] != w[i][k])
+						goto fail;
+				}
+				ans++;
+			fail:;
+			}
+			return ans;
+	}
+	
+};
+
+
+
 
 
 class TwoTurtledoves
@@ -322,11 +350,12 @@ public:
 	
 };
 
+//Start from - TheNewHouseDivTwo
+
 
 /* DO Again
 
   * DNAString
-  * Isomorphic words.
   * LuckyString
   * AlientAndGame
   * Surveillance System.
