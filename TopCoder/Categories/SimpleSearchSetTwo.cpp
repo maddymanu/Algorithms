@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include <set>
 
 using namespace std;
 
@@ -26,6 +27,48 @@ public:
 	}
 	
 };
+
+class Matching
+{
+public:
+	vector<string> findMatch(vector<string> a,vector<string> b) {
+		string state[4][3]={{"CIRCLE","SQUIGGLE","DIAMOND"},
+                        {"RED","GREEN","BLUE"},
+                        {"SOLID","STRIPED","EMPTY"},
+                        {"ONE","TWO","THREE"}         };
+
+        vector<string> ret(4);
+        for(int i=0 ; i<4 ; i++) {
+        	int val=0;
+        	for(int j=0 ; j<3 ; j++) {
+        		if(a[i] == state[i][j])
+        			val+=j
+        		if(b[i] == state[i][j])
+        			val+=j;
+        	}
+        	ret[i] = state[i][(9-val)%3];
+        }
+        return ret;
+	}
+};
+
+
+class RedSquare
+{
+public:
+	int countTheEmptyReds(int maxRank, int maxFile, vector<int> rank, vector<int> file) {
+		int cnt = 0;
+		for(int k=0 ; k<rank.size() ; k++) {
+			if((rank[k]+file[k])%2 == maxFile%2 )
+				cnt++;
+		}
+		return (maxRank*maxFile)/2-cnt;
+	}
+	
+};
+
+
+
 
 class TwoTurtledoves
 {
@@ -68,6 +111,32 @@ public:
 	}
 	
 };
+
+class Mailbox
+{
+public:
+	int impossible(string collection, vector<string> address) {
+		int ans = 0;
+		multiset<char> S(collection.begin(), collection.end());
+		for(int i=0 ; i<address.size() ; i++) {
+			multiset<char> A(address[i].begin(), address[i].end());
+			for(int j=0 ; j<address[i].size() ; j++) {
+				char c = address[i][j];
+				if(c == ' ')
+					continue;
+				if(S.count(c) < A.count(c)) {
+					ans++;
+					break;
+				}
+			}
+		}
+		return ans;
+	}
+	
+};
+
+
+
 
 class GroceryBagger
 {

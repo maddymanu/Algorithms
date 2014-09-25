@@ -213,12 +213,17 @@ public:
 	
 };
 
+//Start from GameInDarkness.
+
+
+
 
 //Getting stuck everywhere. Need to understand more.
 
 /* Do later
 	* VocaloidAndSongs
 	* All Prob ones. (around 71% Success rate for Div2)
+	* TheCowDivTwo
 */
 
 
