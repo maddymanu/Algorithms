@@ -305,6 +305,23 @@ public:
 };
 
 
+class InfiniteSequence
+{
+public:
+	map <long long , long long> mem;
+
+	long long calc(long long n, int p, int q) {
+		if(n==0)
+			return 1;
+		if(mem.count(n))
+			return mem[n];
+		mem[n] = calc(n/p , p , q) + calc(n/q,p,q);
+		return mem[n];
+	}
+	
+};
+
+
 //Start from OnTime
 
 
