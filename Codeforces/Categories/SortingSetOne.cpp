@@ -111,39 +111,86 @@ using namespace std;
 
 
 
-int main()
+// int main()
+// {
+//     const int maxn = 1000;
+
+// 	pair<int, int> arr[maxn];
+
+//     int s, n; cin >> s >> n;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i].first >> arr[i].second;
+//     }
+
+//     sort(arr, arr + n);
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (s <= arr[i].first)
+//         {
+//             cout << "NO\n";
+//             return 0;
+//         }
+//         else
+//         {
+//             s += arr[i].second;
+//         }
+//     }
+//     cout << "YES\n";
+// }
+
+//459B Pashmak and Flowers
+
+// int main(int argc, char const *argv[])
+// {
+// 	long long N;
+// 	cin >>  N;
+// 	long long arr[N];
+// 	for(int i=0 ; i<N ; i++) {
+// 		cin >> arr[i];
+// 	}
+
+// 	long long mx = *max_element(arr , arr+N);
+// 	long long mn = *min_element(arr , arr+N);
+
+// 	long long ct1 = count(arr,arr+N,mx);
+// 	long long ct2 = count(arr,arr+N,mn);
+// 	cout << mx-mn << " " ;//<< ct2*ct1 << endl;
+// 	if(mx != mn) {
+// 		cout << ct1*ct2 << endl;
+// 	}else {
+// 		cout << "1" << endl;
+// 	}
+// 	return 0;
+// }
+
+
+
+//439B Devu, the Dumb Guy
+
+int main(int argc, char const *argv[])
 {
-    const int maxn = 1000;
+	long long n, x;
+	cin >> n >> x;
+	long long arr[n];
+	for(int i=0; i<n ; i++) {
+		cin >> arr[i];
+	}
 
-	pair<int, int> arr[maxn];
+	sort(arr , arr+n);
+	long long ans = 0;
+	for(int i=0 ; i<n ; i++) {
+		ans += arr[i]*x;
+		if(x>1) {
+			x--;
+		}
+	}
+	cout << ans << endl;
 
-    int s, n; cin >> s >> n;
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i].first >> arr[i].second;
-    }
-
-    sort(arr, arr + n);
-
-    for (int i = 0; i < n; i++)
-    {
-        if (s <= arr[i].first)
-        {
-            cout << "NO\n";
-            return 0;
-        }
-        else
-        {
-            s += arr[i].second;
-        }
-    }
-    cout << "YES\n";
+	return 0;
 }
-
-
-
-
 
 
 
