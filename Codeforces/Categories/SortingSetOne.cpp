@@ -170,30 +170,53 @@ using namespace std;
 
 //439B Devu, the Dumb Guy
 
+// int main(int argc, char const *argv[])
+// {
+// 	long long n, x;
+// 	cin >> n >> x;
+// 	long long arr[n];
+// 	for(int i=0; i<n ; i++) {
+// 		cin >> arr[i];
+// 	}
+
+// 	sort(arr , arr+n);
+// 	long long ans = 0;
+// 	for(int i=0 ; i<n ; i++) {
+// 		ans += arr[i]*x;
+// 		if(x>1) {
+// 			x--;
+// 		}
+// 	}
+// 	cout << ans << endl;
+
+// 	return 0;
+// }
+
+
+//246A BuggSorting.
+
 int main(int argc, char const *argv[])
 {
-	long long n, x;
-	cin >> n >> x;
-	long long arr[n];
-	for(int i=0; i<n ; i++) {
-		cin >> arr[i];
-	}
-
-	sort(arr , arr+n);
-	long long ans = 0;
-	for(int i=0 ; i<n ; i++) {
-		ans += arr[i]*x;
-		if(x>1) {
-			x--;
+	int n;
+	cin >> n;
+	if(n<=2) {
+		cout << "-1" << endl;
+	} else {
+		for(int i=0;i<n;i++) {
+			if(i==0) {
+				cout << n-1;
+			}else if(i==1) {
+				cout << n;
+			}else {
+				cout << n-i;
+			}
+			if(i != (n-1))
+				cout<<" ";
 		}
+		cout << endl;
 	}
-	cout << ans << endl;
-
 	return 0;
 }
-
-
-
 
 
 
