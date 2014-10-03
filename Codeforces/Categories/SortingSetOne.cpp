@@ -184,7 +184,7 @@ using namespace std;
 // 	for(int i=0 ; i<n ; i++) {
 // 		ans += arr[i]*x;
 // 		if(x>1) {
-// 			x--;
+// 			x--; 
 // 		}
 // 	}
 // 	cout << ans << endl;
@@ -220,7 +220,7 @@ int main(int argc, char const *argv[])
 
 
 
-
+dwdwe
 
 
 
