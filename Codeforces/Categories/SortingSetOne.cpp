@@ -195,33 +195,75 @@ using namespace std;
 
 //246A BuggSorting.
 
+// int main(int argc, char const *argv[])
+// {
+// 	int n;
+// 	cin >> n;
+// 	if(n<=2) {
+// 		cout << "-1" << endl;
+// 	} else {
+// 		for(int i=0;i<n;i++) {
+// 			if(i==0) {
+// 				cout << n-1;
+// 			}else if(i==1) {
+// 				cout << n;
+// 			}else {
+// 				cout << n-i;
+// 			}
+// 			if(i != (n-1))
+// 				cout<<" ";
+// 		}
+// 		cout << endl;
+// 	}
+// 	return 0;
+// }
+
+//160B UnluckyTicket
 int main(int argc, char const *argv[])
 {
 	int n;
 	cin >> n;
-	if(n<=2) {
-		cout << "-1" << endl;
-	} else {
-		for(int i=0;i<n;i++) {
-			if(i==0) {
-				cout << n-1;
-			}else if(i==1) {
-				cout << n;
-			}else {
-				cout << n-i;
-			}
-			if(i != (n-1))
-				cout<<" ";
+	vector<int> to(n) , fro(n);
+	for(int i=0 ; i<(2*n) ; i++) {
+		if(i<n) {
+			char c;
+			cin >> c;
+			to[i] = c-'0';
+		}else {
+			char c;
+			cin >> c;
+			fro[i-n] = c-'0';
 		}
-		cout << endl;
+	}
+	sort(to.begin(), to.end());
+	sort(fro.begin(), fro.end());
+	if(to[0] < fro[0]) {
+		int flag = 0;
+		for(int i=0; i<n; i++){
+			if(to[i] <= fro[i]){
+				flag = 1;
+				break;
+			}
+		}
+		if(flag == 1)
+			cout<<"NO\n";
+		else
+			cout<<"YES\n";
+	} else if(to[0] < fro[0]) {
+		int flag = 0;
+		for(int i=0; i<n; i++){
+			if(to[i] >= fro[i]){
+				flag = 1;
+				break;
+			}
+		}
+		if(flag == 1)
+			cout<<"NO\n";
+		else
+			cout<<"YES\n";
 	}
 	return 0;
 }
-
-
-
-dwdwe
-
 
 
 
