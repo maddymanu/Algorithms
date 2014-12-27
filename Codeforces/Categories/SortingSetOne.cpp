@@ -219,51 +219,127 @@ using namespace std;
 // }
 
 //160B UnluckyTicket
+// int main(int argc, char const *argv[])
+// {
+// 	int n;
+// 	cin >> n;
+// 	vector<int> to(n) , fro(n);
+// 	for(int i=0 ; i<(2*n) ; i++) {
+// 		if(i<n) {
+// 			char c;
+// 			cin >> c;
+// 			to[i] = c-'0';
+// 		}else {
+// 			char c;
+// 			cin >> c;
+// 			fro[i-n] = c-'0';
+// 		}
+// 	}
+// 	sort(to.begin(), to.end());
+// 	sort(fro.begin(), fro.end());
+// 	if(to[0] < fro[0]) {
+// 		int flag = 0;
+// 		for(int i=0; i<n; i++){
+// 			if(to[i] <= fro[i]){
+// 				flag = 1;
+// 				break;
+// 			}
+// 		}
+// 		if(flag == 1)
+// 			cout<<"NO\n";
+// 		else
+// 			cout<<"YES\n";
+// 	} else if(to[0] < fro[0]) {
+// 		int flag = 0;
+// 		for(int i=0; i<n; i++){
+// 			if(to[i] >= fro[i]){
+// 				flag = 1;
+// 				break;
+// 			}
+// 		}
+// 		if(flag == 1)
+// 			cout<<"NO\n";
+// 		else
+// 			cout<<"YES\n";
+// 	}
+// 	return 0;
+// }
+
+
+//490A Team Olympiad
+
 int main(int argc, char const *argv[])
 {
+	vector<int> v;
 	int n;
 	cin >> n;
-	vector<int> to(n) , fro(n);
-	for(int i=0 ; i<(2*n) ; i++) {
-		if(i<n) {
-			char c;
-			cin >> c;
-			to[i] = c-'0';
-		}else {
-			char c;
-			cin >> c;
-			fro[i-n] = c-'0';
-		}
+
+	for(int i=0 ; i<n ; i++) {
+		int x;
+		cin >> x;
+		v.push_back(x);
 	}
-	sort(to.begin(), to.end());
-	sort(fro.begin(), fro.end());
-	if(to[0] < fro[0]) {
-		int flag = 0;
-		for(int i=0; i<n; i++){
-			if(to[i] <= fro[i]){
-				flag = 1;
-				break;
-			}
-		}
-		if(flag == 1)
-			cout<<"NO\n";
+
+	vector<int> ones;
+	vector<int> twos;
+	vector<int> threes;
+
+	vector<int> :: iterator it = v.begin();
+	int i = 1;
+
+	while(it != v.end()) {
+		if(*it ==  1)
+			ones.push_back(i);
+		else if(*it==2)
+			twos.push_back(i);
 		else
-			cout<<"YES\n";
-	} else if(to[0] < fro[0]) {
-		int flag = 0;
-		for(int i=0; i<n; i++){
-			if(to[i] >= fro[i]){
-				flag = 1;
-				break;
-			}
-		}
-		if(flag == 1)
-			cout<<"NO\n";
-		else
-			cout<<"YES\n";
+			threes.push_back(i);
+
+		it++;
+		i++;
+
 	}
+
+	int teams = min(min(ones.size() , twos.size()) , threes.size());
+	cout << teams << endl;
+	vector<int> :: iterator a = ones.begin();
+	vector<int> :: iterator b = twos.begin();
+	vector<int> :: iterator c = threes.begin();
+
+	while(teams--) {
+		cout << *a << " " << *b << " " << *c << endl;
+		a++;
+		b++;
+		c++;
+	}
+
+
+
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
