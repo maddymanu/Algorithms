@@ -111,29 +111,29 @@ using namespace std;
 
 //259A Little Elephant
 
-// int main(int argc, char const *argv[])
-// {
-// 	vector<string> in;
-// 	string s;
-// 	while(getline(cin, s)) {
-// 		in.push_back(s);
-// 	}
+int main(int argc, char const *argv[])
+{
+	vector<string> in;
+	string s;
+	while(getline(cin, s)) {
+		in.push_back(s);
+	}
 
-// 	bool flag = true;
+	bool flag = true;
 
-// 	for(vector<string>::iterator it=in.begin(); it!=in.end(); it++) {
-// 		if(it != "WBWBWBWB" || it!="BWBWBWBW")
-// 			flag=false;
-// 	}
+	for(vector<string>::iterator it=in.begin(); it!=in.end(); it++) {
+		if(it != "WBWBWBWB" || it!="BWBWBWBW")
+			flag=false;
+	}
 
-// 	if(flag==true) {
-// 		cout << "YES" << endl;
-// 	} else {
-// 		cout << "NO" << endl;
-// 	}
+	if(flag==true) {
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
+	}
 
-// 	return 0;
-// }
+	return 0;
+}
 
 
 
