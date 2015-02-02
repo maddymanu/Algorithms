@@ -22,3 +22,4 @@ Progres --
 4. Bad topics - Search, Dynamic programming, Graph theory.
 
 Do more- Search, Recursion, Dynamic.
+Do more Machine Learning from Hackering. 
