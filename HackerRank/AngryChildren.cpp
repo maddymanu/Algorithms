@@ -19,3 +19,5 @@ int main() {
 	cout << min << endl;
 	return 0;
 }
+
+//Staring Palantir. 
