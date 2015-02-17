@@ -21,3 +21,5 @@ int main() {
 }
 
 //Staring Palantir. 
+
+//Compleetd Palantir, was pretty good. 
