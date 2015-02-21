@@ -24,3 +24,10 @@ Progres --
 
 Do more- Search, Recursion, Dynamic.
 Do more Machine Learning from Hackering. 
+
+Interviews
+Factual - Failed.
+Eddi - Meeting on friday...27th. 
+Hoozu - Part Time
+Palantir - On Campus.
+Intuit - Online first
