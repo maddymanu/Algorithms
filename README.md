@@ -29,5 +29,5 @@ Interviews
 Factual - Failed.
 Eddi - Meeting on friday...27th. 
 Hoozu - Part Time
-Palantir - On Campus.
-Intuit - Online first
+Palantir - On Campus - Preparartion if hard itself. 
+Intuit - Online first , Karat Test - Hard!
