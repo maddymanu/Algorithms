@@ -30,4 +30,6 @@ Factual - Failed.
 Eddi - Meeting on friday...27th. 
 Hoozu - Part Time
 Palantir - On Campus - Preparartion is hard itself. - :( - Went Well....but didn't get a callback. :( - V Sad feeling.
-Intuit - Online first , Karat Test - Hard!
+Intuit - Online first , Karat Test - Medium.
+
+
