@@ -9,7 +9,6 @@ SRM's for TopCoder. (Practicing)
 Leetcode - Best OJ for interviews. Did 25/177 problems.
 
 
-
 Note:
 Some of these solutions are not the ones I came up with.
 These are taken from editorials or solutions given on the respective websites.
@@ -31,6 +30,6 @@ Eddi - Meeting on friday...27th.
 Hoozu - Part Time
 Palantir - On Campus - Preparartion is hard itself. - :( - Went Well....but didn't get a callback. :( - V Sad feeling.
 Intuit - Online first , Karat Test - Medium.
-Facebook - Wed - March 2/3!!
+Facebook - Wed - March 2/3!! - Prep - Amazing and fun!
 
 
