@@ -31,5 +31,6 @@ Hoozu - Part Time
 Palantir - On Campus - Preparartion is hard itself. - :( - Went Well....but didn't get a callback. :( - V Sad feeling.
 Intuit - Online first , Karat Test - Medium.
 Facebook - Wed - March 2/3!! - Prep - Amazing and fun!
+Twitter - Really hard! - Mobile Dev. 
 
 
