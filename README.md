@@ -32,5 +32,5 @@ Palantir - On Campus - Preparartion is hard itself. - :( - Went Well....but didn
 Intuit - Online first , Karat Test - Medium.
 Facebook - Wed - March 2/3!! - Prep - Amazing and fun!
 Twitter - Really hard! - Mobile Dev. 
-
+Pint & Eddi - Email
 
