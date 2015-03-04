@@ -26,6 +26,7 @@ int main(int argc, char const *argv[])
     char *url = "https://gist.githubusercontent.com/anonymous/d2ec2461468d4a0372db/raw/b1eb88fa20b147deaafa9e38768174d79f705805/gistfile1.txt";
     char outfilename[FILENAME_MAX] = "URLS.txt";
     c = curl_easy_init();
+    //learn all this. 
     if (c) {
         fp = fopen(outfilename,"wb");
         curl_easy_setopt(c, CURLOPT_URL, url);
